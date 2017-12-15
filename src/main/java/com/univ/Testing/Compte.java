@@ -10,11 +10,13 @@ public class Compte {
 	 * @throws Exception si credit <= 0
 	 */
 	public void crediter(float credit) throws Exception{
-		this.solde = 0;
+		if (credit <= 0){
+			throw new Exception();
+		this.solde = solde + credit;
 	}
 
 	public float getSolde() {
-		return 0;
+		return this.solde;
 	}
 
 	/**
@@ -25,10 +27,10 @@ public class Compte {
 	 * @throws Exception si debit < 20 ou si debit > 1000 euros.
 	 */
 	public float debiter(float debit) throws Exception{
-		if(debit <= 0) {
+		if(debit <= 0 || debit < 20 || debit > 1000) {
 			throw new Exception();
 		}
-		return 0;
+		return this.solde - debit;
 	}
 	
 	/**
@@ -37,6 +39,11 @@ public class Compte {
 	 * @throws Exception si solde <= 0
 	 */
 	public void setSolde(float solde) throws Exception{
+		if (solde <= 0){
+			throw new exception();	
+		}
+		this.solde = solde;
+		
 	}
 
 
